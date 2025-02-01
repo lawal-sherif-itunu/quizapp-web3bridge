@@ -53,6 +53,7 @@ body {
 }
 
 .info_box {
+  display: none;
   width: 540px;
   background-color: var(--base-variant);
   border-radius: 5px;
@@ -109,8 +110,14 @@ body {
 }
 
 .buttons button.restart:hover {
+  background-color: var(--primary-hover-btn);
 }
 
 .buttons button.quit {
   color: var(--accent-color);
+}
+
+.buttons button.quit:hover {
+  color: var(--base-variant);
+  background-color: var(--primary-hover-btn);
 }
