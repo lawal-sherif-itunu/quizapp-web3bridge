@@ -2,6 +2,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>QUIZ APP BY SHERIF</title>
   </head>
@@ -45,15 +57,39 @@
       </header>
       <section>
         <div class="que_text">
-            <span>What is the capital of France?</span>
+          <span>What is the capital of France?</span>
         </div>
         <div class="option_list">
-            <div class="option">
-                <span>London</span>
-                <div class="icon"></div>
-            </div>
+          <div class="option">
+            <span>London</span>
+            <div class="icon"><img src="images/wrong.svg" alt="" /></div>
+          </div>
+          <div class="option">
+            <span>Paris</span>
+            <div class="icon tick"><img src="images/correct.svg" alt="" /></div>
+          </div>
+          <div class="option">
+            <span>Berlin</span>
+            <div class="icon"><img src="images/wrong.svg" alt="" /></div>
+          </div>
+          <div class="option">
+            <span>Madrid</span>
+            <div class="icon"><img src="images/wrong.svg" alt="" /></div>
+          </div>
         </div>
       </section>
+
+      <footer>
+        <div class="total_que">
+          <span
+            ><p>2</p>
+            of
+            <p>50</p>
+            Questions</span
+          >
+        </div>
+        <button class="next_btn">Next Question</button>
+      </footer>
     </div>
   </body>
 </html>
