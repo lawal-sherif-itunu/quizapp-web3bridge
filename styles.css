@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+    color: #fff;
+    color: #1A1A1A1A;
+    color: #007BFF;
+    color: #6C757D;
+    color: #FF5722;
+    color: #E0E0E0;
+    color: #F8F9FA;
+} */
+
+:root {
+  --base-color: #007bff;
+  --base-variant: #e8e9ed;
+  --text-color: #111528;
+  --secondary-text: #232738;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+  --primary-btn: #fff;
+  --primary-hover-btn: #0056b3;
+  --dark-mode-btn: #00a6ff;
+  --dark-mode-hover-btn: #7d7d7d;
+}
+
+body {
+  background-color: var(--base-color);
+}
+
+.start_btn,
+.info_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.start_btn button {
+  font-size: 25px;
+  font-weight: 500;
+  background-color: var(--primary-btn);
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--base-color);
+  /* background: #fff; */
+  cursor: pointer;
+}
+
+.info_box {
+  width: 540px;
+  background-color: var(--base-variant);
+  border-radius: 5px;
+}
+
+.info_box .info_title {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.info_box .info_list {
+  padding: 15px 35px;
+}
+
+.info_box .info_list .info {
+  margin: 5px 0;
+  font-size: 17px;
+}
+
+.info_box .info_list .info span {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.info_box .buttons {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 35px;
+  border-top: 1px solid lightgrey;
+}
+
+.info_box .buttons button {
+  margin: 0 5px;
+  height: 40px;
+  width: 100px;
+  border: 1px solid var(--accent-color);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--base-variant);
+}
+
+.buttons button.restart {
+  color: var(--base-variant);
+  background-color: var(--accent-color);
+}
+
+.buttons button.restart:hover {
+}
+
+.buttons button.quit {
+  color: var(--accent-color);
+}
