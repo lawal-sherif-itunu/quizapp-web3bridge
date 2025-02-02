@@ -26,7 +26,8 @@
   --primary-hover-btn: #0056b3;
   --dark-mode-btn: #96daff;
   --dark-mode-hover-btn: #7d7d7d;
-  --tick: rgb(0, 184, 0);
+  --tick: #00b800;
+  --red: #a00000;
 }
 
 body {
@@ -223,8 +224,8 @@ body {
 }
 
 .option_list .option .icon {
-  height: 26px;
-  width: 26px;
+  height: 30px;
+  width: 30px;
   border: 2px solid transparent;
   border-radius: 50%;
 }
@@ -233,10 +234,24 @@ body {
   background-color: var(--tick);
 }
 
-.tick img {
+.icon svg {
   /* display: none; */
-  padding: 3px;
-  color: green;
-  border: 1px solid green;
+  padding: 6px;
   border-radius: 50%;
+  text-align: center;
+  font-size: 13px;
+  line-height: 24px;
+  pointer-events: none;
+}
+
+.tick svg {
+  border: 2px solid var(--tick);
+  fill: var(--tick);
+  background-color: var(--base-variant);
+}
+
+.cross svg {
+  border: 2px solid var(--red);
+  fill: var(--red);
+  background-color: var(--base-variant);
 }
