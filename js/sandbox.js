@@ -223,11 +223,20 @@ function startTimer(time) {
 }
 
 function startTimerLine(time) {
+  // Reset the width at start
+  timeLine.style.width = "0px";
+
+  // Calculate how much width to add each interval
+  // We want to fill the full width (100%) in 15 seconds
+  // At 20ms intervals, that's 750 iterations (15000ms / 20ms)
+  const quizWidth = quiz_box.offsetWidth;
+  const increment = quizWidth / 750;
+
   counterLine = setInterval(timer, 20);
   function timer() {
-    time += 1;
+    time += increment;
     timeLine.style.width = time + "px";
-    if (time > 350) {
+    if (time >= quizWidth) {
       clearInterval(counterLine);
     }
   }

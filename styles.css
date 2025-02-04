@@ -286,7 +286,9 @@ body {
   bottom: 0px;
   left: 0px;
   height: 3px;
+  width: 0; /* Start at 0 */
   background-color: var(--body);
+  transition: width 0.1s ease; /* Smooth transition */
 }
 .quiz_box section {
   padding: 25px 30px 20px 30px;
