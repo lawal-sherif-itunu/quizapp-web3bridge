@@ -5,6 +5,7 @@ const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
 const option_list = document.querySelector(".option_list");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
+const timeLine = quiz_box.querySelector("header .time_line");
 
 // If Start Quiz button is clicked
 start_btn.onclick = () => {
@@ -23,6 +24,7 @@ continue_btn.onclick = () => {
   showQuestions(0);
   queCounter(1);
   startTimer(15);
+  startTimerLine(0);
 };
 
 //
@@ -31,8 +33,13 @@ let que_count = 0;
 let que_numb = 1;
 let counter;
 let timeValue = 15;
+let widthvalue = 0;
+let userScore = 0;
 
 const next_btn = document.querySelector(".next_btn");
+const result_box = document.querySelector(".result_box");
+const restart_quiz = result_box.querySelector(".buttons .restart");
+const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // If Next Button is CLicked
 next_btn.onclick = () => {
@@ -42,8 +49,14 @@ next_btn.onclick = () => {
     showQuestions(que_count);
     queCounter(1);
     queCounter(que_numb);
+    clearInterval(counter);
+    startTimer(timeValue);
+    clearInterval(counterLine);
+    startTimerLine(widthvalue);
+    next_btn.style.display = "none";
   } else {
     console.log("Questions completed");
+    showResultBox();
   }
 };
 
@@ -85,9 +98,13 @@ let crossIcon =
   '<div class="icon cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></div>';
 
 function optionSelected(answer) {
+  clearInterval(counter);
+  clearInterval(counterLine);
   let userAns = answer.textContent;
   let correctAns = questions[que_count].answer;
   let allOptions = option_list.children.length;
+  userScore += 1;
+  console.log(userScore);
   if (userAns == correctAns) {
     answer.classList.add("correct");
     console.log("Answer is correct");
@@ -110,6 +127,39 @@ function optionSelected(answer) {
   for (let i = 0; i < allOptions; i++) {
     option_list.children[i].classList.add("disabled");
   }
+  next_btn.style.display = "block";
+}
+
+function showResultBox() {
+  info_box.classList.remove("activeInfo"); // hide info box
+  quiz_box.classList.remove("activeQuiz"); // hide the quiz box
+  result_box.classList.add("activeResult"); // show the result box
+  const scoreText = result_box.querySelector(".score_text");
+  if (userScore > 3) {
+    let scoreTag =
+      "<span>and sorry, You got only<p>" +
+      userScore +
+      "</p>out of<p>" +
+      questions.length +
+      "</p></span>";
+    scoreText.innerHTML = scoreTag;
+  } else if (userScore > 1) {
+    let scoreTag =
+      "<span>and congrats!, You got only<p>" +
+      userScore +
+      "</p>out of<p>" +
+      questions.length +
+      "</p></span>";
+    scoreText.innerHTML = scoreTag;
+  } else {
+    let scoreTag =
+      "<span>and nice, You got only<p>" +
+      userScore +
+      "</p>out of<p>" +
+      questions.length +
+      "</p></span>";
+    scoreText.innerHTML = scoreTag;
+  }
 }
 
 function startTimer(time) {
@@ -117,6 +167,25 @@ function startTimer(time) {
   function timer() {
     timeCount.textContent = time;
     time--;
+    if (time < 9) {
+      let addZero = timeCount.textContent;
+      timeCount.textContent = "0" + addZero;
+    }
+    if (time < 0) {
+      clearInterval(counter);
+      timeCount.textContent = "00";
+    }
+  }
+}
+
+function startTimerLine(time) {
+  counterLine = setInterval(timer, 29);
+  function timer() {
+    time += 1;
+    timeLine.style.width = time + "px";
+    if (time > 549) {
+      clearInterval(counterLine);
+    }
   }
 }
 
