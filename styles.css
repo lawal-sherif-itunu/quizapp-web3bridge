@@ -5,32 +5,28 @@
   font-family: "Public Sans", serif;
 }
 
-.light_mode {
-  position: absolute;
-  background-color: var(--base-variant);
-  padding: 1rem;
-  border-radius: 50%;
-  top: 3rem;
-  right: 3rem;
-  position: fixed;
-  z-index: 9999999999999999999999999999;
-}
-
-.light_mode svg {
-  color: var(--accent-color);
-}
-
 :root {
-  --base-color: #007bff;
-  --base-variant: #e8e9ed;
-  --text-color: #111528;
-  --secondary-text: #232738;
-  --primary-color: #3a435d;
-  --accent-color: #0071ff;
-  --primary-btn: #fff;
-  --primary-hover-btn: #0056b3;
-  --dark-mode-btn: #96daff;
-  --dark-mode-hover-btn: #7d7d7d;
+  --body: #007bff;
+  --start-btn: #007bff;
+  --start-btn-bg: #e8e9ed;
+  --quiz-bg: #e8e9ed;
+  --quiz-text: #111528;
+  --line: #d3d3d3;
+  --span: #007bff;
+
+  --btn-one: #007bff;
+  --btn-two: #e8e9ed;
+  --btn-three: #001c3a;
+  --btn-four: #007bff;
+  --btn-five: #e8e9ed;
+  --btn-six: #007bff;
+  --btn-border: #007bff;
+
+  --quiz-box: #e8e9ed;
+  --result-bg: #e8e9ed;
+  --white: #fff;
+  --purple: #a0a2ff;
+
   --tick: #00b800;
   --correct: #ceffce;
   --red: #a00000;
@@ -38,20 +34,31 @@
 }
 
 .darkmode {
-  --base-color: #121212; /* Near-black background for true dark mode */
-  --base-variant: #1e1e1e; /* Dark gray variant */
-  --text-color: #e8e9ed; /* Light gray for contrast */
-  --secondary-text: #a0a0a0; /* Softer gray for secondary text */
-  --primary-color: #1e90ff; /* Bright blue for primary elements */
-  --accent-color: #1565c0; /* Vibrant yellow-orange */
-  --primary-btn: #1e90ff; /* Same bright blue */
-  --primary-hover-btn: #1565c0; /* Darker blue */
-  --dark-mode-btn: #e8e9ed; /* Light gray */
-  --dark-mode-hover-btn: #7d7d7d; /* Gray */
-  --tick: #00ff00; /* Neon green for success */
-  --correct: #66bb6a; /* Softer green */
-  --red: #ff5252; /* Bright red */
-  --incorrect: #ff8a80; /* Softer red */
+  --body: #001c3a;
+  --start-btn: #001c3a;
+  --start-btn-bg: #007bff;
+  --quiz-bg: #007bff;
+  --quiz-text: #111528;
+  --line: #111528;
+  --span: #e8e9ed;
+
+  --btn-one: #001c3a;
+  --btn-two: #e8e9ed;
+  --btn-three: #007bff;
+  --btn-four: #007bff;
+  --btn-five: #001c3a;
+  --btn-six: #007bff;
+  --btn-border: #001c3a;
+
+  --quiz-box: #e8e9ed;
+  --result-bg: #e8e9ed;
+  --white: #fff;
+  --purple: #a0a2ff;
+
+  --tick: #00b800;
+  --correct: #ceffce;
+  --red: #a00000;
+  --incorrect: #ffabab;
 }
 
 #theme-switch {
@@ -59,17 +66,21 @@
   width: 50px;
   padding: 0;
   border-radius: 50%;
-  background-color: var(--base-variant);
+  background-color: var(--quiz-box);
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 2rem;
+  right: 2rem;
+  outline: none;
+  border: none;
 }
 
 #theme-switch svg:last-child {
   display: none;
+  outline: none;
+  border: none;
 }
 
 .darkmode #theme-switch svg:first-child {
@@ -81,12 +92,12 @@
 }
 
 #theme-switch svg {
-  fill: var(--accent-color);
+  fill: var(--body);
 }
 
 body {
-  background-color: var(--base-color);
-  color: var(--text-color);
+  background-color: var(--body);
+  color: var(--quiz-text);
 }
 
 .start_btn,
@@ -114,25 +125,28 @@ body {
 .start_btn button {
   font-size: 25px;
   font-weight: 500;
-  background-color: var(--primary-btn);
+  background-color: var(--start-btn-bg);
   padding: 15px 30px;
   outline: none;
   border: none;
   border-radius: 5px;
-  color: var(--base-color);
+  border-radius: 5px;
+  color: var(--start-btn);
   /* background: #fff; */
   cursor: pointer;
 }
 
 .start_btn button:hover {
-  background-color: var(--base-variant);
+  background-color: var(--start-btn);
+  color: var(--start-btn-bg);
+  border: 2px solid var(--start-btn-bg);
 }
 
 .info_box {
   /* display: none; */
   width: min(90%, 30rem);
   /* width: 90%; */
-  background-color: var(--base-variant);
+  background-color: var(--quiz-bg);
   border-radius: 5px;
   opacity: 0;
   pointer-events: none;
@@ -141,8 +155,8 @@ body {
 
 .info_box .info_title {
   height: 60px;
-  width: 80%;
-  border-bottom: 1px solid lightgrey;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   padding: 0 35px;
@@ -161,7 +175,7 @@ body {
 
 .info_box .info_list .info span {
   font-weight: 600;
-  color: var(--accent-color);
+  color: var(--span);
 }
 
 .info_box .buttons {
@@ -170,7 +184,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   padding: 0 35px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid var(--line);
 }
 
 .info_box .buttons button {
@@ -179,36 +193,36 @@ body {
   /* width: 100px; */
   padding-inline: 2rem;
   outline: none;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--btn-border);
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  color: var(--base-variant);
+  color: var(--quiz-box);
   border-radius: 5px;
 }
 
 .buttons button.restart {
-  color: var(--base-variant);
-  background-color: var(--accent-color);
+  color: var(--btn-two);
+  background-color: var(--btn-one);
 }
 
 .buttons button.restart:hover {
-  background-color: var(--primary-hover-btn);
+  background-color: var(--btn-three);
 }
 
 .buttons button.quit {
-  color: var(--accent-color);
+  color: var(--btn-four);
 }
 
 .buttons button.quit:hover {
-  color: var(--base-variant);
-  background-color: var(--primary-hover-btn);
+  color: var(--btn-five);
+  background-color: var(--btn-six);
 }
 
 .quiz_box {
   /* display: none; */
   width: min(90%, 30rem);
-  background-color: var(--base-variant);
+  background-color: var(--quiz-box);
   border-radius: 5px;
   opacity: 0;
   pointer-events: none;
@@ -220,7 +234,7 @@ body {
   z-index: 99;
   height: 70px;
   padding: 0 30px;
-  background-color: var(--base-variant);
+  background-color: var(--quiz-box);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -240,8 +254,8 @@ body {
   justify-content: space-between;
   width: 145px;
   height: 45px;
-  background-color: var(--dark-mode-btn);
-  border: 1px solid var(--base-variant);
+  background-color: var(--purple);
+  border: 1px solid var(--quiz-box);
   padding: 0 8px;
   border-radius: 5px;
 }
@@ -256,10 +270,10 @@ body {
 .quiz_box header .timer .timer_sec {
   font-size: 18px;
   font-weight: 500;
-  background: var(--primary-color);
+  background: var(--btn-three);
   height: 30px;
   width: 45px;
-  color: var(--base-variant);
+  color: var(--quiz-box);
   text-align: center;
   line-height: 30px;
   border-radius: 5px;
@@ -272,11 +286,11 @@ body {
   bottom: 0px;
   left: 0px;
   height: 3px;
-  background-color: var(--accent-color);
+  background-color: var(--body);
 }
 .quiz_box section {
   padding: 25px 30px 20px 30px;
-  background: var(--base-variant);
+  background: var(--quiz-box);
 }
 
 .quiz_box section .que_text {
@@ -290,8 +304,8 @@ body {
 }
 
 .option {
-  background-color: var(--primary-btn);
-  border: 1px solid var(--base-color);
+  background-color: var(--white);
+  border: 1px solid var(--body);
   padding: 8px 15px;
   margin-bottom: 15px;
   display: flex;
@@ -304,9 +318,9 @@ body {
 }
 
 .quiz_box section .option_list .option:hover {
-  color: var(--base-color);
-  background-color: var(--dark-mode-btn);
-  border-color: var(--primary-btn);
+  color: var(--btn-five);
+  background-color: var(--btn-three);
+  border-color: var(--btn-two);
 }
 
 .quiz_box section .option_list .option:last-child {
@@ -377,19 +391,19 @@ footer .next_btn {
   font-weight: 400;
   border: none;
   outline: none;
-  background-color: var(--base-color);
-  color: var(--base-variant);
-  border: 1px solid var(--base-color);
+  background-color: var(--btn-one);
+  color: var(--quiz-box);
+  border: 1px solid var(--btn-one);
   cursor: pointer;
   border-radius: 5px;
 }
 
 footer .next_btn:hover {
-  background-color: var(--accent-color);
+  background-color: var(--btn-three);
 }
 
 .result_box {
-  background-color: var(--base-variant);
+  background-color: var(--result-bg);
   width: 450px;
   padding: 25px 30px;
   border-radius: 5px;
@@ -404,10 +418,10 @@ footer .next_btn:hover {
 }
 
 .result_box .icon svg {
-  /* height: 100px; */
-  /* width: 100px; */
+  height: 50%;
+  width: 50%;
   /* display: none; */
-  fill: var(--base-color);
+  fill: var(--body);
   margin-bottom: 10px;
 }
 
@@ -441,14 +455,14 @@ footer .next_btn:hover {
   font-size: 18px;
   font-weight: 500;
   border-radius: 5px;
-  border: 1px solid var(--base-color);
+  border: 1px solid var(--body);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .correct {
   border: 2px solid var(--tick);
-  color: var(--text-color);
+  color: var(--quiz-text);
   /* background-color: var(--green); */
   background-color: var(--correct);
   /* background-color: red; */
@@ -456,7 +470,7 @@ footer .next_btn:hover {
 
 .incorrect {
   border: 2px solid var(--red);
-  color: var(--text-color);
+  color: var(--quiz-text);
   /* background-color: var(--green); */
   background-color: var(--incorrect);
   /* background-color: red; */
@@ -470,4 +484,8 @@ footer .next_btn:hover {
   pointer-events: none;
   /* opacity: 0.5; */
   cursor: not-allowed;
+}
+
+.score_text span p {
+  color: var(--red);
 }
