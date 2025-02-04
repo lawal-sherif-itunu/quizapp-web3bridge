@@ -38,20 +38,50 @@
 }
 
 .darkmode {
-  --base-color: #232738;
-  --base-variant: #e8e9ed;
-  --text-color: #111528;
-  --secondary-text: #232738;
-  --primary-color: #3a435d;
-  --accent-color: #0071ff;
-  --primary-btn: #fff;
-  --primary-hover-btn: #0056b3;
-  --dark-mode-btn: #96daff;
-  --dark-mode-hover-btn: #7d7d7d;
-  --tick: #00b800;
-  --correct: #ceffce;
-  --red: #a00000;
-  --incorrect: #ffabab;
+  --base-color: #121212; /* Near-black background for true dark mode */
+  --base-variant: #1e1e1e; /* Dark gray variant */
+  --text-color: #e8e9ed; /* Light gray for contrast */
+  --secondary-text: #a0a0a0; /* Softer gray for secondary text */
+  --primary-color: #1e90ff; /* Bright blue for primary elements */
+  --accent-color: #1565c0; /* Vibrant yellow-orange */
+  --primary-btn: #1e90ff; /* Same bright blue */
+  --primary-hover-btn: #1565c0; /* Darker blue */
+  --dark-mode-btn: #e8e9ed; /* Light gray */
+  --dark-mode-hover-btn: #7d7d7d; /* Gray */
+  --tick: #00ff00; /* Neon green for success */
+  --correct: #66bb6a; /* Softer green */
+  --red: #ff5252; /* Bright red */
+  --incorrect: #ff8a80; /* Softer red */
+}
+
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
+}
+
+#theme-switch svg {
+  fill: var(--accent-color);
 }
 
 body {
@@ -284,8 +314,8 @@ body {
 }
 
 .option_list .option .icon {
-  height: 30px;
-  width: 30px;
+  /* height: 30px; */
+  /* width: 30px; */
   border: 2px solid transparent;
   border-radius: 50%;
 }
@@ -296,7 +326,7 @@ body {
 
 .icon svg {
   /* display: none; */
-  padding: 6px;
+  padding: 1px;
   border-radius: 50%;
   text-align: center;
   font-size: 13px;
@@ -374,8 +404,8 @@ footer .next_btn:hover {
 }
 
 .result_box .icon svg {
-  height: 100px;
-  width: 100px;
+  /* height: 100px; */
+  /* width: 100px; */
   /* display: none; */
   fill: var(--base-color);
   margin-bottom: 10px;
