@@ -27,7 +27,9 @@
   --dark-mode-btn: #96daff;
   --dark-mode-hover-btn: #7d7d7d;
   --tick: #00b800;
+  --correct: #ceffce;
   --red: #a00000;
+  --incorrect: #ffabab;
 }
 
 body {
@@ -224,7 +226,7 @@ body {
   display: block;
 }
 
-.quiz_box section .option_list .option {
+.option {
   background-color: var(--primary-btn);
   border: 1px solid var(--base-color);
   padding: 8px 15px;
@@ -235,6 +237,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 5px;
+  /* background-color: red; */
 }
 
 .quiz_box section .option_list .option:hover {
@@ -255,7 +258,7 @@ body {
 }
 
 .option_list .option .icon .tick {
-  background-color: var(--tick);
+  background-color: var(--correct);
 }
 
 .icon svg {
@@ -271,13 +274,13 @@ body {
 .tick svg {
   border: 2px solid var(--tick);
   fill: var(--tick);
-  background-color: var(--base-variant);
+  background-color: var(--correct);
 }
 
 .cross svg {
   border: 2px solid var(--red);
   fill: var(--red);
-  background-color: var(--base-variant);
+  background-color: var(--incorrect);
 }
 
 .quiz_box footer {
@@ -377,4 +380,30 @@ footer .next_btn:hover {
   border: 1px solid var(--base-color);
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.correct {
+  border: 2px solid var(--tick);
+  color: var(--text-color);
+  /* background-color: var(--green); */
+  background-color: var(--correct);
+  /* background-color: red; */
+}
+
+.incorrect {
+  border: 2px solid var(--red);
+  color: var(--text-color);
+  /* background-color: var(--green); */
+  background-color: var(--incorrect);
+  /* background-color: red; */
+}
+
+.option_list .option .disabled {
+  pointer-events: none;
+}
+
+.option.disabled {
+  pointer-events: none;
+  /* opacity: 0.5; */
+  cursor: not-allowed;
 }
