@@ -491,3 +491,47 @@ footer .next_btn:hover {
 .score_text span p {
   color: var(--red);
 }
+
+/* MEMES */
+.funny-reactions-start,
+.funny-reactions-start-two,
+.funny-reactions-start-three {
+  position: absolute;
+  width: 180px;
+  padding: 0;
+  background-color: var(--quiz-box);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2rem;
+}
+
+.funny-reactions-start img,
+.funny-reactions-start-two img,
+.funny-reactions-start-three img {
+  height: 7rem;
+  width: 180px;
+}
+
+.funny-comment-start,
+.funny-comment-start-two,
+.funny-comment-start-three {
+  padding: 0.8rem;
+  width: 180px;
+  text-align: center;
+}
+
+.funny-comment-start span,
+.funny-comment-start-two span,
+.funny-comment-start-three span {
+  color: var(--start-btn);
+  font-size: 13px;
+}
+
+.funny-reactions-start-two,
+.funny-reactions-start-three {
+  display: none;
+}

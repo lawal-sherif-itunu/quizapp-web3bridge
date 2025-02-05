@@ -8,14 +8,22 @@ const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeLine = quiz_box.querySelector("header .time_line");
 const timeoff = quiz_box.querySelector("header .time_text");
 
+const meme_one = document.querySelector(".funny-reactions-start");
+const meme_two = document.querySelector(".funny-reactions-start-two");
+const meme_three = document.querySelector(".funny-reactions-start-three");
+
 // If Start Quiz button is clicked
 start_btn.onclick = () => {
   info_box.classList.add("activeInfo"); //show the info box
+  meme_one.style.display = "none";
+  meme_two.style.display = "block";
 };
 
 // If exit button is clicked
 exit_btn.onclick = () => {
   info_box.classList.remove("activeInfo"); // hide info box
+  meme_one.style.display = "block";
+  meme_two.style.display = "none";
 };
 
 // If continue button is clicked
@@ -26,6 +34,9 @@ continue_btn.onclick = () => {
   queCounter(1);
   startTimer(15);
   startTimerLine(0);
+  meme_one.style.display = "none";
+  meme_two.style.display = "none";
+  meme_three.style.display = "block";
 };
 
 //
@@ -80,6 +91,12 @@ next_btn.onclick = () => {
     startTimerLine(widthvalue);
     next_btn.style.display = "none";
     timeoff.textContent = "Time Left";
+
+    // Reset the meme image back to default
+    const memeThreeImage = document.querySelector(
+      ".funny-image-reaction-start-three img"
+    );
+    memeThreeImage.src = "images/elon-answer.png";
   } else {
     clearInterval(counter);
     clearInterval(counterLine);
@@ -131,16 +148,22 @@ function optionSelected(answer) {
   let userAns = answer.textContent;
   let correctAns = questions[que_count].answer;
   let allOptions = option_list.children.length;
+  const memeThreeImage = document.querySelector(
+    ".funny-image-reaction-start-three img"
+  );
+
   if (userAns == correctAns) {
     userScore += 1;
     console.log(userScore);
     answer.classList.add("correct");
     console.log("Answer is correct");
     answer.insertAdjacentHTML("beforeend", tickIcon);
+    memeThreeImage.src = "images/elon-correct.png";
   } else {
     answer.classList.add("incorrect");
     console.log("Answer is wrong");
     answer.insertAdjacentHTML("beforeend", crossIcon);
+    memeThreeImage.src = "images/elon-wrong.webp";
 
     // if answers is incorrect then automatically select the correct answer
     for (let i = 0; i < allOptions; i++) {
