@@ -100,7 +100,12 @@ next_btn.onclick = () => {
     const memeThreeImage = document.querySelector(
       ".funny-image-reaction-start-three img"
     );
+    const memeThreeSpan = document.querySelector(
+      ".funny-comment-start-three span"
+    );
     memeThreeImage.src = "images/elon-answer.png";
+    memeThreeSpan.textContent =
+      "The right option is the one you are looking at";
   } else {
     clearInterval(counter);
     clearInterval(counterLine);
@@ -155,6 +160,10 @@ function optionSelected(answer) {
   const memeThreeImage = document.querySelector(
     ".funny-image-reaction-start-three img"
   );
+  const memeThreeSpan = document.querySelector(
+    ".funny-comment-start-three span"
+  );
+
   if (userAns == correctAns) {
     userScore += 1;
     console.log(userScore);
