@@ -410,7 +410,7 @@ footer .next_btn:hover {
 
 .result_box {
   background-color: var(--result-bg);
-  width: 450px;
+  width: min(90%, 30rem);
   padding: 25px 30px;
   border-radius: 5px;
   display: flex;
