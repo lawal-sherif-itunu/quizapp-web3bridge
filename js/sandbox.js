@@ -12,6 +12,10 @@ const meme_one = document.querySelector(".funny-reactions-start");
 const meme_two = document.querySelector(".funny-reactions-start-two");
 const meme_three = document.querySelector(".funny-reactions-start-three");
 
+const meme_three_span = document.querySelector(
+  ".funny-comment-start-three span"
+);
+
 // If Start Quiz button is clicked
 start_btn.onclick = () => {
   info_box.classList.add("activeInfo"); //show the info box
@@ -151,7 +155,6 @@ function optionSelected(answer) {
   const memeThreeImage = document.querySelector(
     ".funny-image-reaction-start-three img"
   );
-
   if (userAns == correctAns) {
     userScore += 1;
     console.log(userScore);
@@ -159,11 +162,13 @@ function optionSelected(answer) {
     console.log("Answer is correct");
     answer.insertAdjacentHTML("beforeend", tickIcon);
     memeThreeImage.src = "images/elon-correct.png";
+    meme_three_span.textContent = "Wow, I thought you won't get it correctly";
   } else {
     answer.classList.add("incorrect");
     console.log("Answer is wrong");
     answer.insertAdjacentHTML("beforeend", crossIcon);
     memeThreeImage.src = "images/elon-wrong.webp";
+    meme_three_span.textContent = "Don't worry, I won't make fun of you🤣🤣🤣";
 
     // if answers is incorrect then automatically select the correct answer
     for (let i = 0; i < allOptions; i++) {
