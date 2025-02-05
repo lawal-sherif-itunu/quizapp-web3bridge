@@ -71,7 +71,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 2rem;
+  top: 1rem;
   right: 2rem;
   outline: none;
   border: none;
@@ -510,7 +510,7 @@ footer .next_btn:hover {
   align-items: center;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .funny-reactions-start img,
